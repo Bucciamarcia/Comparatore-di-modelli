@@ -1,0 +1,2 @@
+git+https://github.com/Bucciamarcia/libreria-ai-per-tutti.git
+google-cloud-aiplatform

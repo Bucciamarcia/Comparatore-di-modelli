@@ -8,13 +8,14 @@ gpt_3_5_turbo_wins = 0
 vertex_ai_wins = 0
 gpt_3_5_total_time = 0
 vertex_ai_total_time = 0
+GCLOUD_PROJECT_ID = "script-ai-per-tutti"
+
+prompt = input("prompt: ")
 
 def create_output_file():
     """Crea un file di output per salvare i risultati del test."""
     with open("output.txt", "w", encoding="utf-8") as output_file:
         output_file.write("")
-
-prompt = input("prompt: ")
 
 def call_gpt3(prompt):
     """Chiama l'API di OpenAI per generare un testo a partire da un prompt."""
@@ -32,7 +33,7 @@ def call_gpt3(prompt):
 
 def call_bison(prompt):
     start_time = time.time()
-    vertexai.init(project="script-ai-per-tutti", location="us-central1")
+    vertexai.init(project="GCLOUD_PROJECT_ID", location="us-central1")
     chat_model = ChatModel.from_pretrained("chat-bison@001")
     parameters = {
         "temperature": 0,
