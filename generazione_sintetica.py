@@ -8,7 +8,7 @@ gpt_3_5_turbo_wins = 0
 vertex_ai_wins = 0
 gpt_3_5_total_time = 0
 vertex_ai_total_time = 0
-GCLOUD_PROJECT_ID = "script-ai-per-tutti"
+GCLOUD_PROJECT_ID = input("progetto google cloud: ")
 
 def create_output_file():
     """Crea un file di output per salvare i risultati del test."""
@@ -19,7 +19,7 @@ def generate_prompt_list():
     """Genera una lista di prompt che verranno utilizzati per comparare e valutare la qualità di due modelli di intelligenza artificiale."""
     prompts = ai.gpt_call(engine="gpt-4",
     messages=[
-        {"role": "user", "content": "Generate an array of 10 prompts that will be used to compare and evaluate the quality of two artificial intelligence models. The prompts should all focus on creating code, either Python, Javascript, or php. The code you ask to generate should be at the level where a junior programmer (2 years of experience) should be able to do it with a lot of effort, but wouldn't be too hard for a senior programmer. Prompts can be long. Generate prompts that will require either a lot of creativity (to evaluate the creativity of the models) or lot of reasoning (to evaluate the reasoning of the models). Always give enough context in your prompt, so that the evaluator has the material to evaluate the quality of the answer. In your prompts, ask the models to elaborate on the answer, so that the evaluator can evaluate the quality of the reasoning. If appropriate, ask the model to provide a conclusion or reccomendation."}
+        {"role": "user", "content": "Genera una lista di 3 prompt da utilizzare per comparare e valutare la qualità di due modelli di intelligenza artificiale. I prompt devono essere dell'argomento: geopolitica."}
     ],
     functions=[
     {

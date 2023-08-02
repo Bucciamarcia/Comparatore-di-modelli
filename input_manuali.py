@@ -8,9 +8,10 @@ gpt_3_5_turbo_wins = 0
 vertex_ai_wins = 0
 gpt_3_5_total_time = 0
 vertex_ai_total_time = 0
-GCLOUD_PROJECT_ID = "script-ai-per-tutti"
 
 prompt = input("prompt: ")
+# Hidden input
+gcloud_id = input("progetto google cloud: ")
 
 def create_output_file():
     """Crea un file di output per salvare i risultati del test."""
@@ -33,7 +34,7 @@ def call_gpt3(prompt):
 
 def call_bison(prompt):
     start_time = time.time()
-    vertexai.init(project="GCLOUD_PROJECT_ID", location="us-central1")
+    vertexai.init(project=gcloud_id, location="us-central1")
     chat_model = ChatModel.from_pretrained("chat-bison@001")
     parameters = {
         "temperature": 0,
