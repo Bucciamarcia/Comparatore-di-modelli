@@ -9,6 +9,7 @@ vertex_ai_wins = 0
 gpt_3_5_total_time = 0
 vertex_ai_total_time = 0
 GCLOUD_PROJECT_ID = input("progetto google cloud: ")
+PROMPT_OF_PROMPTS = input("prompt sintetico: ")
 
 def create_output_file():
     """Crea un file di output per salvare i risultati del test."""
@@ -19,7 +20,8 @@ def generate_prompt_list():
     """Genera una lista di prompt che verranno utilizzati per comparare e valutare la qualità di due modelli di intelligenza artificiale."""
     prompts = ai.gpt_call(engine="gpt-4",
     messages=[
-        {"role": "user", "content": "Genera una lista di 3 prompt da utilizzare per comparare e valutare la qualità di due modelli di intelligenza artificiale. I prompt devono essere dell'argomento: geopolitica."}
+        {"role": "system", "content": "You are an expert prompt creator. Your job is to create a list of prompts that will be used to evaluate different AI models against each other. The prompts should be designed to test the models' ability to answer questions, and should be hard question. I'll tell you the topic of the prompt and how many to create."},
+        {"role": "user", "content": PROMPT_OF_PROMPTS}
     ],
     functions=[
     {
